@@ -105,3 +105,5 @@ Finally I wanted to explain a little bit about my ui. I try to control as much a
 **segmented_selector.dart** — a control used to select the theme.
 
 **sliding_segmented_control.dart** — some modifications of the Cupertino control which is used by segmented_selector.dart.
+
+Anyway hopefully this project will help someone. Feel free to use any of it, I didn't create all of this code as parts of it came from watching the tutorials and reviewing the projects mentioned above. Make sure you [setup firebase](https://firebase.google.com/docs/flutter/setup) with your project.
