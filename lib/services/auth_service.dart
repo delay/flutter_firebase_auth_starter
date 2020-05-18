@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
-//import 'package:apple_sign_in/apple_sign_in.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:simple_gravatar/simple_gravatar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_starter/models/models.dart';
+import 'package:simple_gravatar/simple_gravatar.dart';
 
 class AuthService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -63,9 +62,6 @@ class AuthService extends ChangeNotifier {
             photoUrl: gravatarUrl);
         //update the user in firestore
         _updateUserFirestore(_newUser, result.user);
-        //sign in the user
-        await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
       });
       return true;
     } catch (e) {
