@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'dart:ui' as ui;
 import 'package:flutter_starter/localizations.dart';
 import 'package:flutter_starter/store/store.dart';
 
@@ -19,14 +19,8 @@ class LanguageProvider extends ChangeNotifier {
       if ((currentLanguageCode == '') || (currentLanguageCode == null)) {
         //begin taken from devicelocale flutter plugin
         //gets language code (en-US)
-        const MethodChannel _channel =
-            const MethodChannel('uk.spiralarm.flutter/devicelocale');
-        final List deviceLanguages =
-            await _channel.invokeMethod('preferredLanguages');
-        //end taken from devicelocale flutter plugin
-        String deviceLanguage = deviceLanguages.first;
-        deviceLanguage =
-            deviceLanguage.substring(0, 2); //only get 1st 2 characters
+        String deviceLanguage = ui.window.locale.toString();
+        deviceLanguage.substring(0, 2); //only get 1st 2 characters
         print('deviceLanguage: ' + deviceLanguage);
         updateLanguage(deviceLanguage);
       }
